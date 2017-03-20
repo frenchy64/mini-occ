@@ -142,9 +142,9 @@
 (defn parse-type [t]
   (cond
     (vector? t) (let [[args [_ ret]] (split-at (- (count t) 2) t)
-											args (map (fn [[x _ t]]
-																	{:name x 
-																	 :type (parse-type t)})
+                      args (map (fn [[x _ t]]
+                                  {:name x 
+                                   :type (parse-type t)})
                                 (partition 3 args))]
                   (assert (#{'->} (get t (- (count t) 2)))
                           (get t (- (count t) 2)))
