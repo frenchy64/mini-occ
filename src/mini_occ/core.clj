@@ -1,7 +1,6 @@
 (ns mini-occ.core
   {:lang :core.typed
-   :core.typed {:features #{#_:runtime-infer}
-                :runtime-infer {:collapse #{:E}}}
+   :core.typed {:features #{:runtime-infer}}
    }
   (:require [clojure.test :refer [deftest is]]
             [clojure.core.typed :as t :refer [defalias ann U Vec Set Sym]]
