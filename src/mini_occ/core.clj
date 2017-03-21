@@ -4,7 +4,9 @@
    }
   (:require [clojure.test :refer [deftest is]]
             [clojure.core.typed :as t :refer [defalias ann U Vec Set Sym]]
-            [clojure.pprint :refer [pprint]]))
+            [clojure.pprint :refer [pprint]]
+            [clojure.spec :as s]
+            [clojure.spec.test :as stest]))
 
 ;;  e  ::= x | (if e e e) | (lambda (x :- t) e) | (e e*) | #f | n? | add1
 ;;  t  ::= [x : t -> t] | (not t) | (or t t) | (and t t) | #f | N | Any
@@ -64,7 +66,6 @@
   (assert (and (sequential? p)
                (seq? p))
           p)
-  (pprint 'foo)
   (case (first p)
     is (let [[_ e t] p]
          {:P :is
@@ -526,4 +527,3 @@ str/upper-case
 (atom {x 1
        y 2})
 )
-
